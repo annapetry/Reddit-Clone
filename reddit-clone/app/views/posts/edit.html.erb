@@ -1,0 +1,9 @@
+<h3>Edit "<%= @post.title %>"</h3>
+
+<%=
+  render "layouts/post_form",
+  action: post_url(@post),
+  method: "PATCH",
+  post: @post,
+  button: "Update Post"
+%>

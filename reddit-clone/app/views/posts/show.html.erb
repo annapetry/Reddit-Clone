@@ -1,0 +1,23 @@
+<h3><%= @post.title %></h3>
+<h6>Authored By: <%=@post.author.username %></h6>
+
+<% unless @post.url.nil? %>
+  <h4>URL:</h4>
+  <p><%= @post.url %></p>
+<% end %>
+
+<% unless @post.content.nil? %>
+  <h4>Content:</h4>
+  <p><%= @post.content %></p>
+<% end %>
+
+<% if current_user == @post.author %>
+<p>- - - - - - - - - - - - - - - - - - -</p>
+  <p>
+    Psst...<%= current_user.username%>,
+    you can <%= link_to "edit this post", edit_post_url(@post) %>!
+  </p>
+<% end %>
+<p>- - - - - - - - - - - - - - - - - - -</p>
+
+<%= link_to "Back to Mama sub", sub_url(@post.sub) %>

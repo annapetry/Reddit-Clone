@@ -1,0 +1,9 @@
+<h3>Create a Post</h3>
+
+<%=
+  render "layouts/post_form",
+  action: posts_url,
+  method: "POST",
+  post: @post,
+  button: "Create Post"
+%>

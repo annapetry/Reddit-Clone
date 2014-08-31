@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831035206) do
+ActiveRecord::Schema.define(version: 20140831042056) do
+
+  create_table "posts", force: true do |t|
+    t.string   "title",      null: false
+    t.string   "url"
+    t.string   "content"
+    t.integer  "author_id",  null: false
+    t.integer  "sub_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["author_id"], name: "index_posts_on_author_id"
+  add_index "posts", ["sub_id"], name: "index_posts_on_sub_id"
 
   create_table "subs", force: true do |t|
     t.string   "title",        null: false

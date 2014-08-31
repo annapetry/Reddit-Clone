@@ -1,0 +1,42 @@
+<form action="<%= action %>" method="POST">
+    <%= auth_token %>
+    <p><sup>*</sup>  Indicates Required Field
+    <input
+      type="hidden"
+      name="_method"
+      value="<%= method %>">
+
+    <label>Post under SUB:<sup>*</sup>
+      <select name="post[sub_id]">
+        <option value=""></option>
+        <% Sub.all.each do |sub| %>
+          <option value="<%= sub.id %>"
+            <%= "selected" if sub == post.sub %>>
+            <%= sub.title %>
+          </option>
+        <% end%>
+      </select>
+    </label>
+
+    <label>Title<sup>*</sup>
+      <input
+        type="text"
+        name="post[title]"
+        value="<%= post.title %>">
+    </label>
+
+    <label>URL
+      <input
+        type="text"
+        name="post[url]"
+        value="<%= post.url %>">
+    </label>
+
+    <label>Content
+      <textarea
+        name="post[content]"
+        ><%= post.content %></textarea>
+    </label>
+
+    <button><%= button %></button>
+</form>

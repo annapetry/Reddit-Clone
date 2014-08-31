@@ -1,9 +1,19 @@
 <h3><%= @sub.title %></h3>
+<h6>Authored By: <%= @sub.moderator.username %></h6>
 
-<p><%= @sub.description%></p>
+
+<h4><%= @sub.description%></h4>
 
 
-<% if current_user = @sub.moderator %>
+<p>Posts on <%= @sub.title %></p>
+<ul>
+  <% @sub.posts.each do |post| %>
+    <li><%= link_to post.title, post_url(post) %></li>
+  <% end %>
+</ul>
+<%= link_to "Add a Post", new_post_url %>
+
+<% if current_user == @sub.moderator %>
 <p>- - - - - - - - - - - - - - - - - - -</p>
   <p>
     Psst...<%= current_user.username%>,
