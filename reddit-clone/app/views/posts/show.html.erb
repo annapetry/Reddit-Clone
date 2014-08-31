@@ -11,6 +11,13 @@
   <p><%= @post.content %></p>
 <% end %>
 
+<p>Posted on:</p>
+  <ul>
+    <% @post.subs.each do |sub| %>
+      <li><%= link_to sub.title, sub_url(sub) %></li>
+    <% end %>
+  </ul>
+
 <% if current_user == @post.author %>
 <p>- - - - - - - - - - - - - - - - - - -</p>
   <p>
@@ -20,4 +27,4 @@
 <% end %>
 <p>- - - - - - - - - - - - - - - - - - -</p>
 
-<%= link_to "Back to Mama sub", sub_url(@post.sub) %>
+<%= link_to "All Subs", subs_url %>
