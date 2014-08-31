@@ -1,0 +1,9 @@
+<h3>Create a Sub</h3>
+
+<%=
+  render "layouts/sub_form",
+  action: subs_url,
+  method: "POST",
+  sub: @sub,
+  button: "Create Sub"
+%>

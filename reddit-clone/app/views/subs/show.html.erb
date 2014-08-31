@@ -1,0 +1,16 @@
+<h3><%= @sub.title %></h3>
+
+<p><%= @sub.description%></p>
+
+
+<% if current_user = @sub.moderator %>
+<p>- - - - - - - - - - - - - - - - - - -</p>
+  <p>
+    Psst...<%= current_user.username%>,
+    you can <%= link_to "edit this sub", edit_sub_url(@sub) %>!
+  </p>
+<% end %>
+<p>- - - - - - - - - - - - - - - - - - -</p>
+
+
+<%= link_to "All Subs", subs_url %>

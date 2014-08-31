@@ -1,0 +1,9 @@
+<h3>Edit "<%= @sub.title %>"</h3>
+
+<%=
+  render "layouts/sub_form",
+  action: sub_url(@sub),
+  method: "PATCH",
+  sub: @sub,
+  button: "Update Sub"
+%>
