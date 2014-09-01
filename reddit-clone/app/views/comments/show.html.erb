@@ -1,0 +1,10 @@
+<h3><%= @comment.content %></h3>
+<h5>Authored By: <%= @comment.author.username %></h5>
+
+<p>Reply to this Comment:</p>
+<%= render "form", comment: @new_comment %>
+
+
+<%= render "layouts/comments", comment: @comment %>
+
+

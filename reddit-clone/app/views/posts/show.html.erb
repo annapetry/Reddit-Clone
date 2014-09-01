@@ -20,12 +20,11 @@
 
 <% unless @post.comments.empty? %>
 <p>Comments:</p>
-  <ul>
+ <ul>
     <% @post.comments.each do |comment| %>
-      <li>
-        <p>Comment by: <%= comment.author.username %></p>
-        <%= comment.content %>
-      </li>
+    <% next unless comment.parent_comment_id.nil? %>
+      <li><%= link_to comment.content, post_comment_url(@post, comment) %></li>
+      <%= render "layouts/comments", comment: comment%>
     <% end %>
   </ul>
 <% end %>
@@ -41,5 +40,3 @@
   </p>
 <% end %>
 <p>- - - - - - - - - - - - - - - - - - -</p>
-
-<%= link_to "All Subs", subs_url %>

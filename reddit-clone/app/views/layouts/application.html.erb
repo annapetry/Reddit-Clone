@@ -27,5 +27,9 @@
 
 <%= yield %>
 
+<br>
+<% if current_user %>
+  <%= link_to "All Subs", subs_url %>
+<% end %>
 </body>
 </html>
